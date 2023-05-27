@@ -1,0 +1,63 @@
+# projeto-A3
+
+login.php - tela de login
+
+index.php - bem vindo "usuario" - cadastrar e sair / olá visitante --> tela de login
+
+cadastrar.php - cadastro de novo usuario
+
+conexão.php --> conexão com o banco de dados
+logout.php --> destruir uma seção
+logado.php -- > verificar se o usuario existe
+cadastro.php --> vai fazer o cadastro
+
+
+criar banco de dados : projeto A3
+criar tabela login --> nome(vr300),login(vr100), senha(vc100) e primary key (login)
+
+CREATE DATABASE projetoa3;
+USE projetoa3;
+CREATE TABLE login (nome VARCHAR(300),login VARCHAR(100),senha VARCHAR(100),PRIMARY KEY(login))
+INSERT INTO
+login (nome,login,senha)
+VALUES
+('administrador','admin','aluno123');
+
+------------------------------------------------
+login.php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<center>
+<h3>LOGIN</h3>
+<form id ="login" action="logado.php" method="POST" >
+    Login: <input type="text" id="login" required><br>
+    Senha: <input type="password" id="senha" required><br><br>
+    <input type="submit" id="entrar" value="Entrar">
+</form>
+</center>
+</body>
+</html>
+
+------------------------------------------------
+conexao.php
+
+<?php
+
+$conexao = mysqli_connect('localhost','root','','projetoa3','3306');
+
+if(!$conexao){die ("erro de conexão");}
+
+else{echo"conectado";}
+
+
+?> 
+
+------------------------------------------------
