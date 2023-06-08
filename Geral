@@ -23,6 +23,8 @@ login (nome,login,senha)
 VALUES
 ('administrador','admin','aluno123');
 
+(SELECT * FROM login;) para exibir os logs
+
 ------------------------------------------------
 login.php
 
