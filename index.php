@@ -1,11 +1,11 @@
 <?php
 session_start();
 ?>
-</html>
+<html>
 <style>
       body{
         font-family: Arial, Helvetica, sans-serif;
-        background-image: linear-gradient(45deg,cyan, yellow);
+        background-image: linear-gradient(45deg,black, white);
       }
       div{
         background-color: rgba(0, 0, 0,0.9);
@@ -25,18 +25,27 @@ session_start();
         font-size: 15px;
       }
     </style>
-  <body> 
+<body>
     <div>
-     olá, seja bem vindo <?php
-     if (isset($_SESSION['nome']) == null){
-        ?> visitante<br>
-    Realize o <a href="login.php">login</a>
-     <?php } else {
-        echo $_SESSION['nome']; ?><br><br>
-    para cadastrar um novo usuario clique em: <a href="cadastrar.php"><h3>cadastrar</h3></a>
-    para finalizar sessão clique em: <a href="logout.php"><h3>sair</h3></a>
-    <?php } ?>
-     </div>
-
+        <?php if (isset($_SESSION['nome'])) {
+            echo "Olá, " . $_SESSION['nome'] . "<br><br>";
+            if ($_SESSION['nome'] === 'administrador') {
+                ?>
+                <a href="cadastro.php">Cadastrar Usuário</a><br><br>
+                <a href="listar.php">Listar Usuários</a><br><br>
+                <?php
+            }
+            ?>
+            <a href="alterarsenha.php">Alterar Senha</a><br><br>
+            <a href="logout.php">Sair</a><br>
+            <?php
+        } else {
+            ?>
+            Olá, visitante.<br>
+            Realize o <a href="login.php">Login</a>
+            <?php
+        }
+        ?>
+    </div>
 </body>
 </html>
